@@ -21,8 +21,8 @@ from Patients import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',views.index, name="index"),
-    path('login/',views.login, name="login"),
+    path('login/',views.userlogin, name="login"),
     path('dashboard/',views.dashboard, name="dashboard"),
-    path('bookappointment/',views.bookappointment, name="bookappointment"),
+    path('bookappointment/',views.bookappointment, name="book_appointment"),
     path('profile/',views.profile, name="profile"),
 ]

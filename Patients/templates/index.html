@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Register Form</title>
-</head>
-<body>
-    <h2>Register here</h2>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{%load static %}
+{% block content %}
+  
+        <h2>Register here</h2>
+        <!-- <img src="{% static 'images/nurse.jpg' %}" alt="Register" class="img-fluid"> -->
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+      
+{% endblock %}

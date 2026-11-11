@@ -1,56 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment</title>
-</head>
-<body>
 
-    <header>
-        <h1>Welcome to Our Booking Page</h1>
-        <p>Schedule your appointment with us today!</p>
-    </header>
+{% extends 'base.html' %}
 
-    <hr>
+{% block title %}Book Appointment{% endblock %}
 
-    <main>
-        <h2>Book an Appointment 📅</h2>
+{% block content %}
 
-        <form>
-            <label>Full Name:</label><br>
-            <input type="text" placeholder="Enter your name" required><br><br>
+<header>
+    <h1>Welcome to Our Booking Page</h1>
+    <p>Schedule your appointment with us today!</p>
+</header>
 
-            <label>Email:</label><br>
-            <input type="email" placeholder="Enter your email" required><br><br>
+<hr>
 
-            <label>Phone Number:</label><br>
-            <input type="tel" placeholder="Enter phone number"><br><br>
+<main>
+    <h2>Book an Appointment 📅</h2>
 
-            <label>Appointment Date:</label><br>
-            <input type="date" required><br><br>
+    <form method="POST">
+        {% csrf_token %}
 
-            <label>Select Service:</label><br>
-            <select>
-                <option>Consultation</option>
-                <option>General Check-up</option>
-                <option>Follow-up</option>
-            </select><br><br>
+        <label>Full Name:</label><br>
+        <input type="text" name="full_name" placeholder="Enter your name" required><br><br>
 
-            <label>Additional Information:</label><br>
-            <textarea rows="3" placeholder="Your message..."></textarea><br><br>
+        <label>Email:</label><br>
+        <input type="email" name="email" placeholder="Enter your email" required><br><br>
 
-            <button type="submit">Book Now</button>
-            <button type="reset">Clear</button>
-        </form>
-    </main>
+        <label>Phone Number:</label><br>
+        <input type="tel" name="phone" placeholder="Enter phone number"><br><br>
 
-    <hr>
+        <label>Appointment Date:</label><br>
+        <input type="date" name="appointment_date" required><br><br>
 
-    <footer>
-        <p>&copy; 2026 Appointment Booking. All Rights Reserved.</p>
-    </footer>
+        <label>Select Service:</label><br>
+        <select name="service">
+            <option>Consultation</option>
+            <option>General Check-up</option>
+            <option>Follow-up</option>
+        </select><br><br>
 
-</body>
-</html>
+        <label>Additional Information:</label><br>
+        <textarea name="message" rows="3" placeholder="Your message..."></textarea><br><br>
 
+        <button type="submit">Book Now</button>
+        <button type="reset">Clear</button>
+    </form>
+</main>
+
+<hr>
+
+<footer>
+    <p>&copy; 2026 Appointment Booking. All Rights Reserved.</p>
+</footer>
+
+{% endblock %}
